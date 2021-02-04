@@ -18,17 +18,14 @@ The function should:
 
 function createMenuItem(name, price, category) {
 
-  const tacos = {
-
-    name: 'tacos',
-    price: 8,
-    category: 'Lunch',
-    
-  }
-  return tacos;
+  let object = {};
+  object.name=name;
+  object.price=price;
+  object.category=category;
+  return object;
 }
 
-console.log(createMenuItem());
+console.log(createMenuItem('tacos', 8, 'Lunch'));
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 1b: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 Invoke your function!
@@ -91,7 +88,7 @@ Using the burger object below do the following:
   For example: burger.discount("teacher") would return 13.5 and burger.discount("public") would return 16.2
 */
 
-const burger = {
+export const burger = {
   name: "Burger", 
   price: 18, 
   category: "Lunch",
@@ -102,17 +99,15 @@ const burger = {
 
       return burger.price * 0.75;
 
-    } else (discountString === 'public'); {
+    } else {
 
       return burger.price * 0.90;
 
     }
-
   }
+}
 
-};
-
-console.log(burger.discount('teacher'));
+burger.discount('teacher');
 
 ///////////////Reviews (MVP)///////////////////
 
@@ -168,59 +163,16 @@ Use the getReviewByIndex function below to do the following:
   For example: getReviewByIndex(reviews,0) would return: "Daniela gave the restaurant a 5 star review, and their feedback was: Beautiful atmosphere and wonderful vegan options!"
 */
 
-function getReviewByIndex(reviews, index) {
+function getReviewByIndex(array) {
 
-  if (index === 0)
+  const lastReview = reviews[array.length - 8];
 
-  return `${reviews[0].name} gave the restaurant a ${reviews[0].rating} star review, and their feedback was: ${reviews[0].feedback}`;
-
-  // end of Daniela //
-
-  if (index === 1)
-
-  return `${reviews[1].name} gave the restaurant a ${reviews[1].rating} star review, and their feedback was: ${reviews[1].feedback}`;
-
- // end of Jack //
-
-  if (index === 2)
-
-  return `${reviews[2].name} gave the restaurant a ${reviews[2].rating} star review, and their feedback was: ${reviews[2].feedback}`;
-
- // end of Miranda //
-
-  if (index === 3)
-
-  return `${reviews[3].name} gave the restaurant a ${reviews[3].rating} star review, and their feedback was: ${reviews[3].feedback}`;
-
- // end of Wen //
-
-  if (index === 4)
-
-  return `${reviews[4].name} gave the restaurant a ${reviews[4].rating} star review, and their feedback was: ${reviews[4].feedback}`;
-
-  // end of Brett //
-
-  if (index === 5)
-
-  return `${reviews[5].name} gave the restaurant a ${reviews[5].rating} star review, and their feedback was: ${reviews[5].feedback}`;
-
-  // end of Julius //
-
-  if (index === 6)
-
-  return `${reviews[6].name} gave the restaurant a ${reviews[6].rating} star review, and their feedback was: ${reviews[6].feedback}`;
-
-  // end of Lauren //
-
-  if (index === 7)
-
-  return `${reviews[7].name} gave the restaurant a ${reviews[7].rating} star review, and their feedback was: ${reviews[7].feedback}`;
-
- // end of Reyna //
+  return `${lastReview.name} gave the restaurant a ${lastReview.rating} star review, and their feedback was: ${lastReview.feedback}`
 
 }
 
-console.log(getReviewByIndex(reviews, 0));
+console.log(getReviewByIndex(reviews));
+
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 7: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
 Write a function to get information about the most recent (last) review called `getLastReview`
