@@ -3,6 +3,7 @@
 /*When doing these tasks, we recommend using console.log to test the output of your code to make sure it works correctly.*/
 
 ///////////////Menu Items (MVP)///////////////////
+
 const latte = {name: "Cafe Latte", price: 4, category: "Drinks"};
 const breakfastBurrito = {name: "Breakfast Burrito", price: 16, category:"Breakfast"};
 
@@ -17,9 +18,17 @@ The function should:
 
 function createMenuItem(name, price, category) {
 
-  return {name, price, category};
+  const tacos = {
 
+    name: 'tacos',
+    price: 8,
+    category: 'Lunch',
+    
+  }
+  return tacos;
 }
+
+console.log(createMenuItem());
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 1b: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 Invoke your function!
@@ -31,11 +40,42 @@ Test your createMenuItems function by doing the following:
   For example: createMenuItem("pizza",5,"lunch") would return this as the object: {name:"Pizza",price:5,category:"lunch"}
 */
 
-console.log(createMenuItem("pizza",5,"lunch"));
+function createMenuItems() {
 
-console.log(createMenuItem("burger",8,"lunch"));
+  const pizza =
 
-console.log(createMenuItem("bbq",10,"lunch"));
+  {
+    name: "pizza",
+    price: 5,
+    category: "Lunch"
+  }
+ 
+  console.log(pizza);
+
+  const burger =
+
+  {
+    name: "burger",
+    price: 8, 
+    category: "Lunch"
+  }
+
+  console.log(burger);
+
+  const bbq =
+
+  {
+    name: "bbq",
+    price: 10,
+    category: "Lunch"
+  }
+
+  console.log(bbq);
+
+}
+
+console.log(createMenuItems());
+
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 2: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
@@ -51,14 +91,14 @@ Using the burger object below do the following:
   For example: burger.discount("teacher") would return 13.5 and burger.discount("public") would return 16.2
 */
 
-export const burger = {
+const burger = {
   name: "Burger", 
   price: 18, 
   category: "Lunch",
 
   discount: function(discountString) {
 
-    if (discountString ==='teacher' || discountString ==='student') {
+    if (discountString === 'teacher' || discountString === 'student') {
 
       return burger.price * 0.75;
 
@@ -70,20 +110,23 @@ export const burger = {
 
   }
 
-}
+};
 
-
+console.log(burger.discount('teacher'));
 
 ///////////////Reviews (MVP)///////////////////
+
 const reviews = [
-    {name: "Daniela", rating: 5, feedback:"Beautiful atmosphere and wonderful vegan options!"},
-    {name: "Jack", rating: 3, feedback:"A little too hipster for my taste, but the burger was decent, if overpriced"},
-    {name: "Miranda", rating: 4, feedback:"fun trivia and cool vibes"},
-    {name: "Wen", rating: 4.5, feedback:"I don't leave my house often, but when I do, it's for this place. Highly recommend."},
-    {name: "Brett", rating: 3, feedback: "great selection of snacks and a nice cafe area to get work done during the day."},
-    {name: "Julius", rating: 2, feedback: "I was largely unimpressed by this venue. Nothing special on the menu and too expensive. The atmosphere is polarizing, and not for me, but I think some would like it." },
-    {name: "Lauren", rating: 4, feedback: "Absolutely love that they have karaoke Fridays! Food and drink selection is okay."},
-    {name: "Reyna", rating: 3.5, feedback: ""},
+  
+  {name: "Daniela", rating: 5, feedback:"Beautiful atmosphere and wonderful vegan options!"},
+  {name: "Jack", rating: 3, feedback:"A little too hipster for my taste, but the burger was decent, if overpriced"},
+  {name: "Miranda", rating: 4, feedback:"fun trivia and cool vibes"},
+  {name: "Wen", rating: 4.5, feedback:"I don't leave my house often, but when I do, it's for this place. Highly recommend."},
+  {name: "Brett", rating: 3, feedback:"great selection of snacks and a nice cafe area to get work done during the day."},
+  {name: "Julius", rating: 2, feedback:"I was largely unimpressed by this venue. Nothing special on the menu and too expensive. The atmosphere is polarizing, and not for me, but I think some would like it."},
+  {name: "Lauren", rating: 4, feedback:"Absolutely love that they have karaoke Fridays! Food and drink selection is okay."},
+  {name: "Reyna", rating: 3.5, feedback:""},
+
 ]
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 3: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
@@ -100,7 +143,7 @@ Using the reviews array above do the following: (no function needed)
   2. log the whole array to the console, make sure the new review is inside of it   
 */
 
-reviews.push("Alex", 4.5, "I don't leave my house often, but when I do, it's for this place. Highly recommend.")
+reviews.push({name: "Alex", rating: 4.5, feedback: "I don't leave my house often, but when I do, it's for this place. Highly recommend."});
 
 console.log(reviews);
 
@@ -111,8 +154,9 @@ Reyna's feedback is missing! Use what you know to do the following: (no function
 */
 
 
+reviews[7].feedback ="this place is chill with really cool people, great for getting work done on weekdays";
 
-
+console.log(reviews);
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 6: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 Write a function to return a review based on the index of the review in the array.
@@ -124,13 +168,59 @@ Use the getReviewByIndex function below to do the following:
   For example: getReviewByIndex(reviews,0) would return: "Daniela gave the restaurant a 5 star review, and their feedback was: Beautiful atmosphere and wonderful vegan options!"
 */
 
+function getReviewByIndex(reviews, index) {
 
-function getReviewByIndex(/*Your code here*/) {
-  /*Your code here*/
+  if (index === 0)
+
+  return `${reviews[0].name} gave the restaurant a ${reviews[0].rating} star review, and their feedback was: ${reviews[0].feedback}`;
+
+  // end of Daniela //
+
+  if (index === 1)
+
+  return `${reviews[1].name} gave the restaurant a ${reviews[1].rating} star review, and their feedback was: ${reviews[1].feedback}`;
+
+ // end of Jack //
+
+  if (index === 2)
+
+  return `${reviews[2].name} gave the restaurant a ${reviews[2].rating} star review, and their feedback was: ${reviews[2].feedback}`;
+
+ // end of Miranda //
+
+  if (index === 3)
+
+  return `${reviews[3].name} gave the restaurant a ${reviews[3].rating} star review, and their feedback was: ${reviews[3].feedback}`;
+
+ // end of Wen //
+
+  if (index === 4)
+
+  return `${reviews[4].name} gave the restaurant a ${reviews[4].rating} star review, and their feedback was: ${reviews[4].feedback}`;
+
+  // end of Brett //
+
+  if (index === 5)
+
+  return `${reviews[5].name} gave the restaurant a ${reviews[5].rating} star review, and their feedback was: ${reviews[5].feedback}`;
+
+  // end of Julius //
+
+  if (index === 6)
+
+  return `${reviews[6].name} gave the restaurant a ${reviews[6].rating} star review, and their feedback was: ${reviews[6].feedback}`;
+
+  // end of Lauren //
+
+  if (index === 7)
+
+  return `${reviews[7].name} gave the restaurant a ${reviews[7].rating} star review, and their feedback was: ${reviews[7].feedback}`;
+
+ // end of Reyna //
+
 }
 
-
-  
+console.log(getReviewByIndex(reviews, 0));
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 7: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
 Write a function to get information about the most recent (last) review called `getLastReview`
@@ -144,11 +234,15 @@ Use the getLastReview function below to do the following:
 */
 
 
-function getLastReview(/*Your code here*/) {
-  /*Your code here*/
+function getLastReview(array) {
+
+  const lastReview = reviews[array.length - 1];
+
+  return `${lastReview.name} gave the restaurant a ${lastReview.rating} star review, and their feedback was: ${lastReview.feedback}`;
+
 } 
 
-
+console.log(getLastReview(reviews));
 
 ///////////////🍔☕️🍽 STRETCH🍔☕️🍽////////////////////
 
